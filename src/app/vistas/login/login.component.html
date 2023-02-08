@@ -1,0 +1,37 @@
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="assets/ucacue.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup] = "loginForm" (ngSubmit) = "onLogin(loginForm.value)" appIdentityRevealed >
+        <input type="text" class="fadeIn second"  placeholder="Usuario" formControlName="user" required="true">
+        <div *ngIf="loginForm.controls['user'].invalid && (loginForm.controls['user'].dirty || loginForm.controls['user'].touched)" class="alert alert-danger ">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo usuario es obligatorio
+        </div>
+
+        <input type="password" class="fadeIn third" placeholder="Contraña" formControlName="password" required="true">
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo contraseña es obligatorio
+          </div>
+
+        <input type="submit" class="fadeIn fourth" value="Iniciar Sesión" [disabled]="loginForm.invalid">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorStatus">
+        <p>{{errorMsj}}</p>
+      </div>
+  
+    </div>
+  </div>

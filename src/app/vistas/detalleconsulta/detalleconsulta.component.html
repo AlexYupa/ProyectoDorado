@@ -1,0 +1,203 @@
+<div class="content">
+    <div class="container" style="margin-top:10px;">
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>Consulta</h2>
+          <div class="float-right">
+            <!--keydown change keyup
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar......" [(ngModel)]="filterPost">-->
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">#</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.cedula}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Nombre</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Nombre</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.persona.nombre+ ' '+consulta.paciente.persona.apellido}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Edad</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Edad</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.persona.edad}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Teléfono</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Teléfono</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.persona.telefono}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Dirección</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Dirección</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.persona.direccion}}" readonly>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Num. Expediente</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Num. Expediente</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.numexpediente}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Contacto</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Contacto</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.personacontacto}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">T. Sangre</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">T. Sangre</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.tiposangre}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12 my-1">
+                    <label class="sr-only" for="cedulapaciente">Alergia</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Alergia</div>
+                      </div>
+                      <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.paciente.alergia}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12 my-1">
+                  <label class="sr-only" for="cedulapaciente">Especialidad</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Especialidad</div>
+                    </div>
+                    <input type="text" class="form-control" id="cedulapaciente"  value="{{consulta.especialidad.nombreespecialidad}}" readonly>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-body">
+
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Valor</th>
+                <th scope="col">Dato datoMedico</th>
+                <th scope="col">Tipo</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listItem " >
+                <th scope="row" (click)="Editar(item.idconsulta,item.iddatomedico, contenido)">{{item.valor}}</th>
+                <th scope="row" (click)="Editar(item.idconsulta,item.iddatomedico, contenido)">{{item.datoMedico.detalle}}</th>
+                <th scope="row" (click)="Editar(item.idconsulta,item.iddatomedico, contenido)">{{item.datoMedico.tipoDatoMedico.detalle}}</th>
+                <td> 
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <!--<diV class="row">
+                <div class="col-sm-6">
+                  <div class="col-md-12 text-center">
+                    <h5>Consulta</h5>
+          
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-md-12 text-center">
+                    <h5>Signos Vitales</h5>
+          
+                  </div>
+                </div>
+
+            </div>-->
+        </div>
+        <div class="card-footer text-muted">
+          <!--2 days ago-->
+        </div>
+      </div>
+    </div>
+</div>
+<ng-template  #contenido let-modal>
+  <div class="modal-header">
+
+<h4 class="modal-title" >{{titulo}}</h4>
+    <button type="button" class="close"  aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form [formGroup] = "formViewModel" (ngSubmit) = "onsave()">
+      <div class="form-row"> 
+          <div class="form-group col-md-12">
+
+            <label for="valor">Valor</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                
+              </div>
+              <input type="text" value="0000000000" class="form-control" name="valor"  required formControlName="valor">
+
+              <div *ngIf=" formViewModel.controls['valor'].invalid && (formViewModel.controls['valor'].dirty || formViewModel.controls['valor'].touched)" class="alert alert-danger">
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo paciente es obligatorio
+              </div>
+            </div>  
+        </div>
+
+        <div class="form-group col-md-12">
+
+          <label for="nota">Nota</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              
+            </div>
+            <input type="text" value="0000000000" class="form-control" name="nota"  formControlName="nota">
+
+            <div *ngIf=" formViewModel.controls['nota'].invalid && (formViewModel.controls['nota'].dirty || formViewModel.controls['nota'].touched)" class="alert alert-danger">
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo paciente es obligatorio
+            </div>
+          </div>  
+      </div>
+       
+      </div>
+      
+    <button type="submit" class="btn lg btn-dark btn-block" [disabled]="formViewModel.invalid">Guardar</button>
+  </form>
+</div>
+<!--<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+</div>-->
+</ng-template>

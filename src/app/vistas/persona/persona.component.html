@@ -1,0 +1,125 @@
+<div class="content">
+    <div class="container" style="margin-top:10px;">
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>Persona</h2>
+          <div>
+            <button type="button" class="btn btn-dark" (click)="NuevoPersona(contenido)">Nuevo</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listPersona" >
+                <th scope="row" (click)="EditarPersona(item.cedula,contenido)">{{item.cedula}}</th>
+                <td (click)="EditarPersona(item.cedula,contenido)">{{item.nombre+' '+item.apellido}}</td>
+                <td (click)="EditarPersona(item.cedula,contenido)">{{item.telefono}}</td>
+                <td (click)="EditarPersona(item.cedula,contenido)">{{item.direccion}}</td>
+                <td> <button type="button" class="btn btn-danger " (click)="EliminarPersona(item.cedula)"  >Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer text-muted">
+          <!--2 days ago-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template  #contenido let-modal>
+    <div class="modal-header">
+  
+  <h4 class="modal-title" >{{titulo}}</h4>
+      <button type="button" class="close"  aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup] = "personaForm" (ngSubmit) = "onsave()">
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="cedula">Cédula</label>
+          <input type="text" class="form-control" id="cedula" ng-model="cedula" placeholder="0000000000" formControlName="cedula" >
+          <!--<small class="alert alert-dange" >{{getError('cedula')}}</small>-->
+          <div *ngIf=" personaForm.controls['cedula'].invalid && (personaForm.controls['cedula'].dirty || personaForm.controls['cedula'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo cédula es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="JUAN" formControlName="nombre">
+          <div *ngIf=" personaForm.controls['nombre'].invalid && (personaForm.controls['nombre'].dirty || personaForm.controls['nombre'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Apellido es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" id="apellido" placeholder="ANDRADE" formControlName="apellido">
+          <div *ngIf=" personaForm.controls['apellido'].invalid && (personaForm.controls['apellido'].dirty || personaForm.controls['apellido'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Apellido es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="edad">Edad</label>
+          <input type="text" class="form-control" id="edad" placeholder="17" formControlName="edad">
+          <div *ngIf=" personaForm.controls['edad'].invalid && (personaForm.controls['edad'].dirty || personaForm.controls['edad'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Edad es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="telefono">Teléfono</label>
+          <input type="text" class="form-control" id="telefono" placeholder="072236853 o 0992549224" formControlName="telefono">
+          <div *ngIf=" personaForm.controls['telefono'].invalid && (personaForm.controls['telefono'].dirty || personaForm.controls['telefono'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Teléfono es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="telefono">Dirección</label>
+          <input type="text" class="form-control" id="direccion" placeholder="San Rafael" formControlName="direccion">
+          <div *ngIf=" personaForm.controls['direccion'].invalid && (personaForm.controls['direccion'].dirty || personaForm.controls['direccion'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="personaForm.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Dirección es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="idsexo">Genero</label>
+          <select id="idsexo" class="form-control" formControlName="idsexo">
+            <option  *ngFor="let itemSexo of listaSexo" [ngValue]="itemSexo.idsexo">{{itemSexo.nombre}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="idestadocivil">Estado Civil</label>
+          <select id="idestadocivil" class="form-control" formControlName="idestadocivil">
+            <option  *ngFor="let itemEstado of listaEstadoCivil" value={{itemEstado.idestadocivil}}>{{itemEstado.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+      <button type="submit" class="btn lg btn-dark btn-block" [disabled]="personaForm.invalid">Guardar</button>
+    </form>
+  </div>
+  <!--<div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+  </div>-->
+  </ng-template>

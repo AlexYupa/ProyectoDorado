@@ -1,0 +1,27 @@
+export interface FichaDettalleI{
+    idfichadetalle:number;
+    cedulapaciente:string;
+    idespecialidad:number;
+    idmedico:number;
+    fechacracion:Date;
+    temperatura:string;
+    precion:string;
+    frecrespiratoria:string;
+    pulso:string;
+    peso:string;
+    alcohol:string;
+    ejercicio:string;
+    diagnostico:string;
+    medicamento:string;
+    fuma:string;
+    imc:string;
+    perimetrocintura:string;
+    perimetrobranqual:string;
+    perimetropantorrilla:string;
+    apetito:string;
+    micccion:string;
+    sed:string;
+    sueno:string;
+    talla:string;
+    tratamiento:string;
+}
