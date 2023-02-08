@@ -1,0 +1,519 @@
+<div class="content">
+    <div class="container" style="margin-top:10px;">
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>Consultas</h2>
+          <div>
+            <button type="button" class="btn btn-dark" (click)="Nuevo(contenido)">Nuevo</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+              <div class="row">
+                  <div class="col-md-4">
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="cedulapaciente">#</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">#</div>
+                        </div>
+                        <input type="text" class="form-control" id="cedulapaciente"  value="{{historialClinico.cedulapaciente}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="codigo">#</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Código</div>
+                        </div>
+                        <input type="text" class="form-control" id="codigo"  value="{{historialClinico.codigo}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="antecedentes">#</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Antecedente</div>
+                        </div>
+                        <input type="text" class="form-control" id="antecedentes"  value="{{historialClinico.antecedentes}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="antecedentes">Creado</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Creado</div>
+                        </div>
+                        <input type="text" class="form-control" id="antecedentes"  value="{{historialClinico.fechacreacion}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="fechamodificacion">Modificado</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Modificado</div>
+                        </div>
+                        <input type="text" class="form-control" id="fechamodificacion"  value="{{historialClinico.fechamodificacion}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="tiposangre">T. Sangre</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">T. Sangre</div>
+                        </div>
+                        <input type="text" class="form-control" id="tiposangre"  value="{{historialClinico.tiposangre}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="cirujias">Cirugía</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Cirugía</div>
+                        </div>
+                        <input type="text" class="form-control" id="cirujias"  value="{{historialClinico.cirujias}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="alergias">Alergia</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Alergia</div>
+                        </div>
+                        <input type="text" class="form-control" id="alergias"  value="{{historialClinico.alergias}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="nombre">Nombre</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Nombre</div>
+                        </div>
+                        <input type="text" class="form-control" id="nombre"  value="{{historialClinico.paciente.persona.nombre+' '+historialClinico.paciente.persona.apellido}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="telefono">Teléfono</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Teléfono</div>
+                        </div>
+                        <input type="text" class="form-control" id="telefono"  value="{{historialClinico.paciente.persona.telefono}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="direccion">Dirección </label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Dirección </div>
+                        </div>
+                        <input type="text" class="form-control" id="direccion"  value="{{historialClinico.paciente.persona.direccion}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12 my-1">
+                      <label class="sr-only" for="personacontacto">Contacto</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Contacto </div>
+                        </div>
+                        <input type="text" class="form-control" id="personacontacto"  value="{{historialClinico.paciente.personacontacto}}">
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Médico</th>
+                <th scope="col">Fecha</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of historialClinico.fichaDetalle " >
+                <th scope="row" (click)="Editar(item.idfichadetalle, contenido)">{{item.idfichadetalle}}</th>
+                <td (click)="Editar(item.idfichadetalle,contenido)">{{item.idespecialidad}}</td>
+                <td (click)="Editar(item.idfichadetalle, contenido)">{{item.idmedico}}</td>
+                <td (click)="Editar(item.idfichadetalle,contenido)">{{item.fechacracion}}</td>
+                <td> 
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <button type="button" class="btn btn-danger"  ><img src="assets/icon/Delete_20px.png" /></button>
+                      &nbsp;
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="button" class="btn btn-danger"  ><img src="assets/icon/doctors_folder_20px.png" /></button>
+                      &nbsp;
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template  #contenido let-modal>
+    <div class="modal-header">
+  <h4 class="modal-title" >{{titulo}}</h4>
+      <button type="button" class="close"  aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup] = "formViewModel" (ngSubmit) = "onsave()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="idfichadetalle">#</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">#</div>
+              </div>
+              <input type="text" class="form-control" id="idfichadetalle"  value="" formControlName="idfichadetalle" readonly>               
+            </div>
+            <div *ngIf=" formViewModel.controls['idfichadetalle'].invalid && (formViewModel.controls['idfichadetalle'].dirty || formViewModel.controls['idfichadetalle'].touched)" class="alert alert-danger">
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="temperatura">Temperatura</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Temperatura</div>
+              </div>
+              <input type="text" class="form-control" id="temperatura"  value="" formControlName="temperatura" >              
+            </div>
+            <div *ngIf=" formViewModel.controls['temperatura'].invalid && (formViewModel.controls['temperatura'].dirty || formViewModel.controls['temperatura'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="precion">Presión</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Presión</div>
+              </div>
+              <input type="text" class="form-control" id="precion"  value="" formControlName="precion" >             
+            </div>
+            <div *ngIf=" formViewModel.controls['precion'].invalid && (formViewModel.controls['precion'].dirty || formViewModel.controls['precion'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="frecrespiratoria">F. Resp.</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">F. Resp.</div>
+              </div>
+              <input type="text" class="form-control" id="frecrespiratoria"  value="" formControlName="frecrespiratoria" >
+            </div>
+            <div *ngIf=" formViewModel.controls['frecrespiratoria'].invalid && (formViewModel.controls['frecrespiratoria'].dirty || formViewModel.controls['frecrespiratoria'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="pulso">Pulso</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Pulso</div>
+              </div>
+              <input type="text" class="form-control" id="pulso"  value="" formControlName="pulso" >             
+            </div>
+            <div *ngIf=" formViewModel.controls['pulso'].invalid && (formViewModel.controls['pulso'].dirty || formViewModel.controls['pulso'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="peso">Peso</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Peso</div>
+              </div>
+              <input type="text" class="form-control" id="peso"  value="" formControlName="peso" >              
+            </div>
+            <div *ngIf=" formViewModel.controls['peso'].invalid && (formViewModel.controls['peso'].dirty || formViewModel.controls['peso'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="alcohol">Alcohol</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Alcohol</div>
+              </div>
+              <input type="text" class="form-control" id="alcohol"  value="" formControlName="alcohol" >               
+            </div>
+            <div *ngIf=" formViewModel.controls['alcohol'].invalid && (formViewModel.controls['alcohol'].dirty || formViewModel.controls['alcohol'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="ejercicio">Ejercicio</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Ejercicio</div>
+              </div>
+              <input type="text" class="form-control" id="ejercicio"  value="" formControlName="ejercicio" >
+            </div>
+            <div *ngIf=" formViewModel.controls['ejercicio'].invalid && (formViewModel.controls['ejercicio'].dirty || formViewModel.controls['ejercicio'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="medicamento">Medicamento</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Medicamento</div>
+              </div>
+              <input type="text" class="form-control" id="medicamento"  value="" formControlName="medicamento" >
+            </div>
+            <div *ngIf=" formViewModel.controls['medicamento'].invalid && (formViewModel.controls['medicamento'].dirty || formViewModel.controls['medicamento'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="fuma">Fuma</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Fuma</div>
+              </div>
+              <input type="text" class="form-control" id="fuma"  value="" formControlName="fuma" >
+            </div>
+            <div *ngIf=" formViewModel.controls['fuma'].invalid && (formViewModel.controls['fuma'].dirty || formViewModel.controls['fuma'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="cedulapaciente">Cédula</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Cédula</div>
+              </div>
+              <input type="text" class="form-control" id="cedulapaciente"  value="" formControlName="cedulapaciente" readonly>
+            </div>
+            <div *ngIf=" formViewModel.controls['cedulapaciente'].invalid && (formViewModel.controls['cedulapaciente'].dirty || formViewModel.controls['cedulapaciente'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo cédula paciente es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="imc">IMC</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">IMC</div>
+              </div>
+              <input type="text" class="form-control" id="imc"  value="" formControlName="imc" >
+            </div>
+            <div *ngIf=" formViewModel.controls['imc'].invalid && (formViewModel.controls['imc'].dirty || formViewModel.controls['imc'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="perimetrocintura">P. Cintura</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">P. Cintura</div>
+              </div>
+              <input type="text" class="form-control" id="perimetrocintura"  value="" formControlName="perimetrocintura" >
+            </div>
+            <div *ngIf=" formViewModel.controls['perimetrocintura'].invalid && (formViewModel.controls['perimetrocintura'].dirty || formViewModel.controls['perimetrocintura'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="perimetrobranqual">P. Branqueal</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">P. Branqueal</div>
+              </div>
+              <input type="text" class="form-control" id="perimetrobranqual"  value="" formControlName="perimetrobranqual" >
+            </div>
+            <div *ngIf=" formViewModel.controls['perimetrobranqual'].invalid && (formViewModel.controls['perimetrobranqual'].dirty || formViewModel.controls['perimetrobranqual'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="perimetropantorrilla">P. Rodilla</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">P. Rodilla</div>
+              </div>
+              <input type="text" class="form-control" id="perimetropantorrilla"  value="" formControlName="perimetropantorrilla" >
+            </div>
+            <div *ngIf=" formViewModel.controls['perimetropantorrilla'].invalid && (formViewModel.controls['perimetropantorrilla'].dirty || formViewModel.controls['perimetropantorrilla'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="apetito">Apetito</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Apetito</div>
+              </div>
+              <input type="text" class="form-control" id="apetito"  value="" formControlName="apetito" >
+            </div>
+            <div *ngIf=" formViewModel.controls['apetito'].invalid && (formViewModel.controls['apetito'].dirty || formViewModel.controls['apetito'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="micccion">Micción</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Micción</div>
+              </div>
+              <input type="text" class="form-control" id="micccion"  value="" formControlName="micccion" >
+            </div>
+            <div *ngIf=" formViewModel.controls['micccion'].invalid && (formViewModel.controls['micccion'].dirty || formViewModel.controls['micccion'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="sed">Sed</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Sed</div>
+              </div>
+              <input type="text" class="form-control" id="sed"  value="" formControlName="sed" >
+            </div>
+            <div *ngIf=" formViewModel.controls['sed'].invalid && (formViewModel.controls['sed'].dirty || formViewModel.controls['sed'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="sueno">Sueño</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Sueño</div>
+              </div>
+              <input type="text" class="form-control" id="sueno"  value="" formControlName="sueno" >
+            </div>
+            <div *ngIf=" formViewModel.controls['sueno'].invalid && (formViewModel.controls['sueno'].dirty || formViewModel.controls['sueno'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+          <div class="col-sm-12 my-1">
+            <label class="sr-only" for="talla">Talla</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Talla</div>
+              </div>
+              <input type="text" class="form-control" id="talla"  value="" formControlName="talla" >
+            </div>
+            <div *ngIf=" formViewModel.controls['talla'].invalid && (formViewModel.controls['talla'].dirty || formViewModel.controls['talla'].touched)" class="alert alert-danger" >
+              <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+              El campo  es obligatorio
+            </div>
+          </div>
+        </div>
+          <div class="col-md-12">
+            
+            <div class="col-sm-12 my-1">
+              <label class="sr-only" for="idespecialidad">Especialidad</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Especialidad</div>
+                </div>
+                <input type="text" class="form-control" id="idespecialidad"  value="" formControlName="idespecialidad" >               
+              </div>
+              <div *ngIf=" formViewModel.controls['idespecialidad'].invalid && (formViewModel.controls['idespecialidad'].dirty || formViewModel.controls['idespecialidad'].touched)" class="alert alert-danger" >
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo cédula paciente es obligatorio
+              </div>
+            </div>
+            <div class="col-sm-12 my-1">
+              <label class="sr-only" for="idmedico">Médicos</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Médicos</div>
+                </div>
+                <input type="text" class="form-control" id="idmedico"  value="" formControlName="idmedico" >
+              </div>
+              <div *ngIf=" formViewModel.controls['idmedico'].invalid && (formViewModel.controls['idmedico'].dirty || formViewModel.controls['idmedico'].touched)" class="alert alert-danger" >
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo cédula paciente es obligatorio
+              </div>
+            </div>
+            <div class="col-sm-12 my-1">
+              <label class="sr-only" for="fechacracion">Fecha</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Fecha</div>
+                </div>
+                <input type="date" class="form-control" id="fechacracion"  value="" formControlName="fechacracion" >              
+              </div>
+              <div *ngIf=" formViewModel.controls['fechacracion'].invalid && (formViewModel.controls['fechacracion'].dirty || formViewModel.controls['fechacracion'].touched)" class="alert alert-danger" >
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo cédula paciente es obligatorio
+              </div>
+            </div>
+            <div class="col-sm-12 my-1">
+              <label class="sr-only" for="diagnostico">Diagnostico</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Diagnostico</div>
+                </div>
+                <textarea class="form-control" rows="2" id="diagnostico" name="diagnostico" formControlName="diagnostico"></textarea>            
+              </div>
+              <div *ngIf=" formViewModel.controls['diagnostico'].invalid && (formViewModel.controls['diagnostico'].dirty || formViewModel.controls['diagnostico'].touched)" class="alert alert-danger" >
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo cédula paciente es obligatorio
+              </div>
+            </div>
+            
+            <div class="col-sm-12 my-1">
+              <label class="sr-only" for="tratamiento">Tratamiento</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Tratamiento</div>
+                </div>
+                <textarea type="text" class="form-control" id="tratamiento"  value="" formControlName="tratamiento" ></textarea> 
+              </div>
+              <div *ngIf=" formViewModel.controls['tratamiento'].invalid && (formViewModel.controls['tratamiento'].dirty || formViewModel.controls['tratamiento'].touched)" class="alert alert-danger" >
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo  es obligatorio
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button type="submit" class="btn lg btn-dark btn-block" [disabled]="formViewModel.invalid">Guardar</button>
+      </form>
+  </div>
+  <!--<div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+  </div>-->
+  </ng-template>

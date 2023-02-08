@@ -1,0 +1,172 @@
+<div class="content">
+    <div class="container" style="margin-top:10px;">
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>Historial Clinico</h2>
+          <div>
+            <button type="button" class="btn btn-dark" (click)="Nuevo(contenido)">Nuevo</button>
+          </div>
+          <div class="float-right">
+            <!--keydown change keyup-->
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar......" [(ngModel)]="filterPost">
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Código</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Alergia </th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listItem |filterhistorial:filterPost" >
+                <th scope="row" (click)="Editar(item.cedulapaciente, contenido)">{{item.cedulapaciente}}</th>
+                <td (click)="Editar(item.cedulapaciente, contenido)">{{item.codigo}}</td>
+                <td (click)="Editar(item.cedulapaciente, contenido)">{{item.paciente.persona.nombre+' '+item.paciente.persona.apellido}}</td>
+                <td (click)="Editar(item.cedulapaciente, contenido)">{{item.alergias}}</td>
+                <td> 
+                  <button type="button" class="btn btn-danger " (click)="Eliminar(item.cedulapaciente)"  ><img src="assets/icon/Delete_20px.png" /></button>
+                  &nbsp;
+                  <button type="button" class="btn btn-danger " (click)="fichaDetalle(item.cedulapaciente)"  ><img src="assets/icon/doctors_folder_20px.png" /></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer text-muted">
+          <!--2 days ago-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template  #contenido let-modal>
+    <div class="modal-header">
+  
+  <h4 class="modal-title" >{{titulo}}</h4>
+      <button type="button" class="close"  aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup] = "formViewModel" (ngSubmit) = "onsave()">
+      <div class="form-row">
+        
+        <div class="form-group col-md-6">
+
+            <label for="cedulapaciente">Cédula Paciente</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <button type="button" class="btn btn-dark" (click)="addItem(contenidoPersona)">>></button>
+              </div>
+              <input type="text" value="0000000000" class="form-control" name="cedulapaciente"  required readonly formControlName="cedulapaciente">
+
+              <div *ngIf=" formViewModel.controls['cedulapaciente'].invalid && (formViewModel.controls['cedulapaciente'].dirty || formViewModel.controls['cedulapaciente'].touched)" class="alert alert-danger">
+                <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small> [(ngModel)]="CedulaPaciente"-->
+                El campo cédula paciente es obligatorio
+              </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+          <label for="codigo">Código </label>
+          <input type="text" class="form-control" id="codigo" placeholder="125A" formControlName="codigo">
+          <div *ngIf=" formViewModel.controls['codigo'].invalid && (formViewModel.controls['codigo'].dirty || formViewModel.controls['codigo'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo código  es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="tiposangre">Tipo Sangre</label>
+          <input type="text" class="form-control" id="tiposangre" placeholder="O+" formControlName="tiposangre">
+          <div *ngIf=" formViewModel.controls['tiposangre'].invalid && (formViewModel.controls['tiposangre'].dirty || formViewModel.controls['tiposangre'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo tipo sangre es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fechacreacion">Fecha</label>
+          <input type="date" class="form-control" id="fechacreacion" placeholder="" formControlName="fechacreacion">
+          <div *ngIf=" formViewModel.controls['fechacreacion'].invalid && (formViewModel.controls['fechacreacion'].dirty || formViewModel.controls['fechacreacion'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Teléfono es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="antecedentes">Antecedente</label>
+          <input type="text" class="form-control" id="antecedentes" placeholder="Deabetes" formControlName="antecedentes">
+          <div *ngIf=" formViewModel.controls['antecedentes'].invalid && (formViewModel.controls['antecedentes'].dirty || formViewModel.controls['antecedentes'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo tipo sangre es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="cirujias">Cirugía</label>
+          <input type="text" class="form-control" id="cirujias" placeholder="Hernia" formControlName="cirujias">
+          <div *ngIf=" formViewModel.controls['cirujias'].invalid && (formViewModel.controls['cirujias'].dirty || formViewModel.controls['cirujias'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo Cirugía es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="alergias">Alergia</label>
+          <input type="text" class="form-control" id="alergias" placeholder="Medicamento o alimentos" formControlName="alergias">
+          <div *ngIf=" formViewModel.controls['alergias'].invalid && (formViewModel.controls['alergias'].dirty || formViewModel.controls['alergias'].touched)" class="alert alert-danger">
+            <!--<small *ngIf="formViewModel.controls['cedula'].invalid">Campo obligatorio</small>-->
+             El campo alergias es obligatorio
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn lg btn-dark btn-block" [disabled]="formViewModel.invalid">Guardar</button>
+    </form>
+  </div>
+  <!--<div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+  </div>-->
+  </ng-template>
+  <ng-template  #contenidoPersona let-modal>
+    <div class="modal-header">
+  
+  <h4 class="modal-title" >Persona</h4>
+      <button type="button" class="close"  aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <div class="content">
+      <div class="container" style="margin-top:10px;">
+        <div class="card text-center">
+          <div class="card-header">
+            <div class="float-right">
+              <!--keydown change keyup-->
+              <input type="text" name="filterCedula" class="form-control" placeholder="Buscar......" [(ngModel)]="filterCedula" >
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead class="thead-dark">
+              </thead>
+              <tbody>
+                <tr *ngFor="let itemPaciente of listPaciente |fillPacienteByCedula:filterCedula" >
+                  <th scope="row" (click)="addCedulaPaciente(itemPaciente.cedula ); modal.dismiss()">{{itemPaciente.persona.nombre+' '+itemPaciente.persona.apellido}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer text-muted">
+            <!--2 days ago-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+  </div>-->
+  </ng-template>
