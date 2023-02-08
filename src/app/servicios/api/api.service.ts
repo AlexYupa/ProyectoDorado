@@ -21,7 +21,7 @@ import { UsuarioI } from 'src/app/modelos/usuario.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  url:string="http://3.81.168.115:8082/";
+  url:string="http://3.81.169.115:8082/";
   constructor(private http:HttpClient) { }
     //Login
     IniciarSesion(form:LoginI):Observable<UsuarioViewModelI>{    
